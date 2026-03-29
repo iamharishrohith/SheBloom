@@ -1,0 +1,271 @@
+/* ============================================
+   SheBloom — Doctor Sidebar Layout
+   Premium Clinical Navigation Shell
+   ============================================ */
+
+.layoutContainer {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F0FAF4 0%, #FDF8F4 50%, #FFF5EE 100%);
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 260px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(183, 228, 199, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  transition: transform var(--transition-base);
+}
+
+.sidebarBrand {
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  border-bottom: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.brandLogo {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+}
+
+.brandText h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1.2;
+}
+
+.brandText span {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* --- Navigation --- */
+.navSection {
+  flex: 1;
+  padding: var(--space-lg) var(--space-md);
+  overflow-y: auto;
+}
+
+.navLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.navLabel:first-child {
+  margin-top: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.navItem:hover {
+  background: rgba(82, 183, 136, 0.08);
+  color: var(--color-primary);
+}
+
+.navItem.active {
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.1), rgba(82, 183, 136, 0.12));
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.navItem.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: var(--color-primary);
+}
+
+.navBadge {
+  margin-left: auto;
+  background: var(--color-accent);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  min-width: 20px;
+  text-align: center;
+}
+
+/* --- Sidebar Footer --- */
+.sidebarFooter {
+  padding: var(--space-lg);
+  border-top: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.deviceStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(82, 183, 136, 0.08);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-tiny);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+}
+
+.doctorProfile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.doctorAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.doctorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctorInfo strong {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.doctorInfo span {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+}
+
+/* --- Main Content Area --- */
+.mainContent {
+  flex: 1;
+  margin-left: 260px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* --- Mobile --- */
+.menuToggle {
+  display: none;
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-lg), 0 4px 16px rgba(45, 106, 79, 0.3);
+  cursor: pointer;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+}
+
+.menuToggle:hover {
+  transform: scale(1.08);
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .mainContent {
+    margin-left: 0;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 67, 50, 0.4);
+    z-index: 150;
+  }
+
+  .overlay.visible {
+    display: block;
+  }
+}

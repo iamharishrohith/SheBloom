@@ -1,0 +1,284 @@
+/* ============================================
+   SheBloom — Emergency Response (Upgraded)
+   ============================================ */
+
+.wrapper {
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-danger), #ff4d4d);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  box-shadow: 0 8px 24px rgba(224, 122, 95, 0.3);
+  animation: emergencyPulse 2s ease-in-out infinite;
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(224, 122, 95, 0.3); }
+  50% { box-shadow: 0 8px 32px rgba(224, 122, 95, 0.5); }
+}
+
+.header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  color: var(--color-danger);
+  margin-bottom: var(--space-xs);
+}
+
+.header p {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-md);
+}
+
+/* --- SOS Grid --- */
+.sosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.sosCard {
+  text-decoration: none;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.sosCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sosText h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sosText span {
+  font-size: var(--fs-tiny);
+  opacity: 0.85;
+}
+
+.ambulance {
+  background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+  color: white;
+  border: none;
+}
+
+.doctor {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.hospital {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-info);
+  color: var(--color-primary);
+}
+
+/* --- First Response --- */
+.firstResponse {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.06), rgba(82, 183, 136, 0.08));
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.firstResponse h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-lg);
+  font-size: var(--fs-h4);
+}
+
+.checklistGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.checkItem svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* --- Red Flags --- */
+.guidelines {
+  margin-top: var(--space-xl);
+}
+
+.guideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.guideHeader h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+}
+
+.sourceLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(82, 183, 136, 0.08);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.flagList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.flagCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(183, 228, 199, 0.2);
+  transition: all var(--transition-base);
+}
+
+.flagCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.criticalFlag {
+  border-left: 4px solid #e74c3c;
+}
+
+.highFlag {
+  border-left: 4px solid #f39c12;
+}
+
+.flagMain {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  cursor: pointer;
+}
+
+.flagIndicator {
+  display: none;
+}
+
+.flagContent {
+  flex: 1;
+}
+
+.flagContent h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  color: var(--color-danger);
+  margin-bottom: 4px;
+}
+
+.flagContent p {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-sm);
+  line-height: var(--lh-normal);
+}
+
+.actionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(231, 76, 60, 0.08);
+  color: #c0392b;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.flagExpand {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* --- Expanded Steps --- */
+.flagSteps {
+  padding: 0 var(--space-lg) var(--space-lg);
+  animation: expandIn 0.3s ease;
+}
+
+@keyframes expandIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.flagSteps strong {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-small);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.flagSteps ol {
+  padding-left: var(--space-xl);
+  margin: 0;
+}
+
+.flagSteps li {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding: var(--space-md); }
+  .sosGrid { grid-template-columns: 1fr; }
+  .checklistGrid { grid-template-columns: 1fr; }
+}

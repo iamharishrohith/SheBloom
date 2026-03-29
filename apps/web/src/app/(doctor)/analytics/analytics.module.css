@@ -1,0 +1,79 @@
+/* ============================================
+   SheBloom — Compliance Analytics
+   ============================================ */
+.page { padding: var(--space-2xl); max-width: 1200px; margin: 0 auto; }
+
+.header { margin-bottom: var(--space-2xl); }
+.header h1 { display: flex; align-items: center; gap: var(--space-md); margin: 0 0 var(--space-xs); }
+.header p { margin: 0; color: var(--color-text-muted); font-size: var(--fs-small); }
+
+/* --- Top Stats --- */
+.topStats {
+  display: flex; align-items: center; gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl); background: var(--color-bg-card);
+  padding: var(--space-2xl); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md); border: 1px solid rgba(183,228,199,0.2);
+}
+
+.bigStat { display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
+
+.bigStatCircle { position: relative; width: 140px; height: 140px; }
+.progressRing { width: 100%; height: 100%; transform: rotate(-90deg); }
+.bigStatValue {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--color-primary-dark);
+}
+.bigStatLabel { font-size: var(--fs-small); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.miniStats { display: flex; flex-direction: column; gap: var(--space-lg); flex: 1; }
+.miniStat {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-subtle); border-radius: var(--radius-md);
+}
+.miniStat div { display: flex; flex-direction: column; }
+.miniStat strong { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-primary-dark); }
+.miniStat span { font-size: var(--fs-tiny); color: var(--color-text-muted); }
+
+/* --- Charts Grid --- */
+.chartsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-bottom: var(--space-xl); }
+
+.chartPanel {
+  background: var(--color-bg-card); padding: var(--space-xl);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(183,228,199,0.2);
+}
+.chartPanel h3 { display: flex; align-items: center; gap: var(--space-sm); margin: 0 0 var(--space-md); font-size: var(--fs-h4); }
+.chartSub { margin: 0 0 var(--space-lg); font-size: var(--fs-small); color: var(--color-text-muted); }
+
+/* --- Line/Bar Chart --- */
+.lineChart { display: flex; justify-content: space-around; align-items: flex-end; height: 200px; }
+.lineCol { display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); flex: 1; }
+.lineBarWrap { width: 28px; height: 160px; background: var(--color-secondary-light); border-radius: var(--radius-md); display: flex; align-items: flex-end; overflow: hidden; }
+.lineBar { width: 100%; border-radius: var(--radius-md); transition: height 0.6s ease; }
+.lineLabel { font-size: var(--fs-tiny); color: var(--color-text-muted); font-weight: 600; }
+.lineValue { font-size: 0.65rem; font-weight: 700; color: var(--color-primary-dark); }
+
+/* --- Gap Analysis --- */
+.gapList { display: flex; flex-direction: column; gap: var(--space-lg); }
+.gapItem { display: flex; gap: var(--space-md); align-items: flex-start; }
+.gapIcon { flex-shrink: 0; padding-top: 2px; }
+.gapInfo { flex: 1; }
+.gapHeader { display: flex; justify-content: space-between; margin-bottom: var(--space-xs); font-size: var(--fs-small); font-weight: 600; }
+.gapBar { height: 8px; background: var(--color-secondary-light); border-radius: var(--radius-pill); overflow: hidden; margin-bottom: 2px; }
+.gapFill { height: 100%; border-radius: var(--radius-pill); transition: width 0.5s ease; }
+.gapMeta { font-size: var(--fs-tiny); color: var(--color-text-muted); }
+
+/* --- Patient Bars --- */
+.patientBars { display: flex; flex-direction: column; gap: var(--space-md); }
+.patientBar { display: flex; align-items: center; gap: var(--space-lg); }
+.patientName { min-width: 80px; font-size: var(--fs-small); font-weight: 600; color: var(--color-text); }
+.patientBarTrack { flex: 1; height: 12px; background: var(--color-secondary-light); border-radius: var(--radius-pill); overflow: hidden; }
+.patientBarFill { height: 100%; border-radius: var(--radius-pill); transition: width 0.6s ease; }
+.patientRate { min-width: 40px; font-family: var(--font-heading); font-weight: 700; font-size: var(--fs-small); text-align: right; }
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-lg); }
+  .topStats { flex-direction: column; }
+  .chartsGrid { grid-template-columns: 1fr; }
+}

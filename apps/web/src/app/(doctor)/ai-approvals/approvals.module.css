@@ -1,0 +1,246 @@
+.header {
+  margin-bottom: var(--space-2xl);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.headerIcon {
+  color: var(--color-primary);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.statCard {
+  background: var(--color-bg-card);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(183, 228, 199, 0.3);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  transition: all var(--transition-base);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIcon.primary { background: rgba(82, 183, 136, 0.12); color: var(--color-primary); }
+.statIcon.warning { background: rgba(233, 196, 106, 0.12); color: var(--color-warning-dark); }
+.statIcon.accent { background: rgba(244, 132, 95, 0.12); color: var(--color-accent); }
+
+.statInfo h3 {
+  font-size: var(--fs-h2);
+  margin-bottom: 2px;
+}
+
+.statInfo p {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+
+.approvalsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: var(--space-xl);
+}
+
+.approvalCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(183, 228, 199, 0.3);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  padding: var(--space-lg) var(--space-xl);
+  background: rgba(82, 183, 136, 0.05);
+  border-bottom: 1px solid rgba(183, 228, 199, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patientInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.patientAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  object-fit: cover;
+}
+
+.patientDetails h4 {
+  font-size: var(--fs-body);
+  margin: 0;
+}
+
+.patientDetails span {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+}
+
+.aiBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: linear-gradient(135deg, rgba(82, 183, 136, 0.1), rgba(45, 106, 79, 0.1));
+  color: var(--color-primary-dark);
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.cardBody {
+  padding: var(--space-xl);
+}
+
+.aiRationale {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-primary-muted);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  line-height: var(--lh-relaxed);
+}
+
+.editorGroup {
+  margin-bottom: var(--space-md);
+}
+
+.editorLabel {
+  display: block;
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.editorInput, .editorTextarea {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid rgba(183, 228, 199, 0.5);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color var(--transition-fast);
+}
+
+.editorInput:focus, .editorTextarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-bg-card);
+}
+
+.editorTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.timeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.cardFooter {
+  padding: var(--space-lg) var(--space-xl);
+  border-top: 1px solid rgba(183, 228, 199, 0.3);
+  display: flex;
+  gap: var(--space-md);
+}
+
+.rejectBtn {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  background: transparent;
+  border-radius: var(--radius-pill);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.rejectBtn:hover {
+  background: rgba(224, 122, 95, 0.1);
+}
+
+.approveBtn {
+  flex: 2;
+  padding: 0.75rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+
+.approveBtn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .approvalsGrid {
+    grid-template-columns: 1fr;
+  }
+}

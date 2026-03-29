@@ -1,0 +1,511 @@
+/* SheBloom — Landing Page */
+
+.landing {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(160deg, #FDF8F4 0%, #D8F3DC 40%, #B7E4C7 70%, #95D5B2 100%);
+}
+
+.heroGlow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 132, 95, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brandIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-muted));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-primary-dark);
+}
+
+.brandSub {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-left: 0.25rem;
+}
+
+.heroActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.loginBtn {
+  padding: 0.5rem 1.25rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.ctaBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.trustPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(45, 106, 79, 0.1);
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.6s ease;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.heroAccent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  color: var(--color-accent-dark);
+  font-size: 0.65em;
+}
+
+.heroSubtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-relaxed);
+  max-width: 620px;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 1rem;
+  animation: fadeInUp 1.2s ease;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.2);
+}
+
+.primaryCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.3);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.75rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryCta:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ---- Section Common ---- */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  color: var(--color-primary-muted);
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.75rem;
+}
+
+.sectionDesc {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: var(--lh-relaxed);
+}
+
+/* ---- Care Circle Section ---- */
+.circleSection {
+  padding: 5rem 2rem;
+  background: var(--color-bg);
+}
+
+.circleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.circleCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1.5px solid rgba(183, 228, 199, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circleCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-muted));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.circleCard:hover, .circleCard.active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-muted);
+}
+
+.circleCard:hover::before, .circleCard.active::before {
+  opacity: 1;
+}
+
+.circleCard.beneficiary::before {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+}
+
+.circleIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.circleCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.circleRole {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.circleFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.circleFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.4rem 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+}
+
+.circleImpact {
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+  font-size: var(--fs-tiny);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ---- Features Section ---- */
+.featuresSection {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-warm) 100%);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1px solid rgba(183, 228, 199, 0.2);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featureCard p {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-normal);
+}
+
+/* ---- CTA Section ---- */
+.ctaSection {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-muted) 100%);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ctaContent p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  line-height: var(--lh-relaxed);
+}
+
+.ctaSection .primaryCta {
+  background: white;
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ctaSection .primaryCta:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Footer ---- */
+.footer {
+  padding: 2rem;
+  background: var(--color-primary-dark);
+  text-align: center;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--fs-small);
+}
+
+.footer .brand {
+  margin-bottom: 0.5rem;
+}
+
+.footer .brandName {
+  color: white;
+}
+
+.footerNote {
+  font-size: var(--fs-tiny);
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.5rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .circleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .primaryCta, .secondaryCta {
+    justify-content: center;
+  }
+
+  .heroNav {
+    padding: 1rem;
+  }
+
+  .heroContent {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .circleGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,264 @@
+/* ============================================
+   SheBloom — Live Environment Monitor
+   ============================================ */
+
+.page {
+  padding: var(--space-2xl);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-2xl);
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+.online {
+  background: rgba(46, 204, 113, 0.12);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.offline {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* --- Gauges --- */
+.gaugeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.gaugeCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  border: 1px solid rgba(183, 228, 199, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.gaugeCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gaugeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary-muted), var(--color-secondary));
+}
+
+.gaugeIcon {
+  margin-bottom: var(--space-md);
+}
+
+.gaugeValue {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.gaugeValue small {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.gaugeLabel {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.gaugeBar {
+  height: 8px;
+  background: var(--color-secondary-light);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.gaugeBarFill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.5s ease;
+}
+
+.gaugeMeta {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+}
+
+.aqBadge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  margin-top: var(--space-sm);
+}
+
+/* --- Update Bar --- */
+.updateBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+/* --- Panels --- */
+.panelGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-xl);
+}
+
+.panel {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(183, 228, 199, 0.2);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.panel h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-lg) 0;
+  font-size: var(--fs-h4);
+}
+
+/* --- History Table --- */
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 0.8fr 0.8fr;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 0.8fr 0.8fr;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-small);
+  border-bottom: 1px solid rgba(183, 228, 199, 0.15);
+  transition: background var(--transition-fast);
+}
+
+.tableRow:hover {
+  background: var(--color-bg-subtle);
+}
+
+.emptyRow {
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* --- Alert Cards --- */
+.alertCard {
+  padding: var(--space-md);
+  border-left: 3px solid var(--color-danger);
+  margin-bottom: var(--space-md);
+  background: rgba(224, 122, 95, 0.04);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.alertTime {
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.alertMsg {
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.alertSeverity {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+}
+
+.alertSeverity[data-severity="alert"] {
+  background: rgba(231, 76, 60, 0.12);
+  color: #e74c3c;
+}
+
+.alertSeverity[data-severity="critical"] {
+  background: rgba(155, 89, 182, 0.12);
+  color: #9b59b6;
+}
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-lg); }
+  .gaugeGrid { grid-template-columns: 1fr; }
+  .panelGrid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; gap: var(--space-md); }
+}

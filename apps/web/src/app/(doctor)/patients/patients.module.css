@@ -1,0 +1,151 @@
+/* ============================================
+   SheBloom — Patient Registry
+   ============================================ */
+
+.page { padding: var(--space-2xl); max-width: 1300px; margin: 0 auto; }
+
+.header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: var(--space-2xl);
+}
+.header h1 { display: flex; align-items: center; gap: var(--space-md); margin: 0 0 var(--space-xs); }
+.header p { margin: 0; color: var(--color-text-muted); font-size: var(--fs-small); }
+
+.primaryBtn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white; border: none; padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-pill); font-family: var(--font-heading);
+  font-weight: 600; font-size: var(--fs-small); cursor: pointer;
+  transition: all var(--transition-base); box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+.primaryBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3); }
+
+.loading {
+  height: 60vh; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); color: var(--color-primary); font-weight: 600;
+}
+
+/* --- Toolbar --- */
+.toolbar {
+  display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  flex: 1; min-width: 250px; display: flex; align-items: center;
+  gap: var(--space-md); padding: var(--space-sm) var(--space-lg);
+  background: var(--color-bg-card); border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-pill); transition: border-color var(--transition-fast);
+}
+.searchBox:focus-within { border-color: var(--color-primary-muted); }
+.searchBox input {
+  border: none; outline: none; flex: 1; font-size: var(--fs-body);
+  font-family: var(--font-body); color: var(--color-text); background: transparent;
+}
+.searchBox input::placeholder { color: var(--color-text-muted); }
+
+.filters { display: flex; gap: var(--space-md); }
+
+.select {
+  padding: var(--space-sm) var(--space-lg); border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-pill); background: var(--color-bg-card);
+  font-family: var(--font-heading); font-size: var(--fs-small); font-weight: 500;
+  color: var(--color-text-secondary); cursor: pointer; outline: none;
+  transition: border-color var(--transition-fast);
+}
+.select:focus { border-color: var(--color-primary-muted); }
+
+/* --- Table --- */
+.tableCard {
+  background: var(--color-bg-card); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md); border: 1px solid rgba(183, 228, 199, 0.2);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid; grid-template-columns: 2fr 0.7fr 1.5fr 1.2fr 0.8fr 1fr 0.5fr;
+  gap: var(--space-md); padding: var(--space-md) var(--space-xl);
+  font-size: var(--fs-tiny); text-transform: uppercase; letter-spacing: 0.08em;
+  font-weight: 700; color: var(--color-text-muted);
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.04), rgba(183, 228, 199, 0.08));
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.tableRow {
+  display: grid; grid-template-columns: 2fr 0.7fr 1.5fr 1.2fr 0.8fr 1fr 0.5fr;
+  gap: var(--space-md); padding: var(--space-md) var(--space-xl);
+  align-items: center; border-bottom: 1px solid rgba(183, 228, 199, 0.15);
+  transition: background var(--transition-fast); font-size: var(--fs-small);
+}
+.tableRow:hover { background: var(--color-bg-subtle); }
+
+.emptyRow {
+  padding: var(--space-4xl); text-align: center; color: var(--color-text-muted);
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-md);
+}
+
+/* --- Patient Name Cell --- */
+.patientName {
+  display: flex; align-items: center; gap: var(--space-md);
+}
+.patientName div { display: flex; flex-direction: column; }
+.patientName strong { font-weight: 600; color: var(--color-primary-dark); }
+.patientName small { font-size: var(--fs-tiny); color: var(--color-text-muted); }
+
+.avatar {
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+}
+
+.trimBadge {
+  background: rgba(82, 183, 136, 0.1); color: var(--color-primary);
+  padding: 2px 10px; border-radius: var(--radius-pill);
+  font-weight: 700; font-size: var(--fs-tiny); text-align: center;
+}
+
+.conditionsCell { display: flex; flex-wrap: wrap; gap: 4px; }
+.condTag {
+  background: rgba(82, 183, 136, 0.08); color: var(--color-primary);
+  padding: 2px 8px; border-radius: var(--radius-pill);
+  font-size: 0.65rem; font-weight: 600;
+}
+.noConditions { color: var(--color-text-muted); font-size: var(--fs-tiny); }
+
+/* --- Compliance Bar --- */
+.compCell { display: flex; align-items: center; gap: var(--space-sm); }
+.compBar {
+  flex: 1; height: 6px; background: var(--color-secondary-light);
+  border-radius: var(--radius-pill); overflow: hidden;
+}
+.compFill { height: 100%; border-radius: var(--radius-pill); transition: width 0.5s ease; }
+
+/* --- Risk Tags --- */
+.riskTag {
+  padding: 2px 10px; border-radius: var(--radius-pill);
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.riskLow { background: rgba(64, 145, 108, 0.1); color: var(--color-success); }
+.riskHigh { background: rgba(224, 122, 95, 0.12); color: var(--color-danger); }
+
+.dateCell { font-size: var(--fs-small); color: var(--color-text-secondary); }
+
+.viewBtn {
+  background: rgba(82, 183, 136, 0.1); border: none; padding: 8px;
+  border-radius: var(--radius-md); color: var(--color-primary); cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.viewBtn:hover { background: rgba(82, 183, 136, 0.2); transform: scale(1.1); }
+
+@media (max-width: 1024px) {
+  .tableHeader, .tableRow { grid-template-columns: 1.5fr 0.5fr 1fr 1fr; }
+  .tableHeader span:nth-child(5), .tableHeader span:nth-child(6), .tableHeader span:nth-child(7),
+  .tableRow span:nth-child(5), .tableRow span:nth-child(6), .tableRow span:nth-child(7) { display: none; }
+}
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-lg); }
+  .header { flex-direction: column; gap: var(--space-md); }
+  .toolbar { flex-direction: column; }
+}

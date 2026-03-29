@@ -1,0 +1,214 @@
+/* ============================================
+   SheBloom — Leave Generator
+   ============================================ */
+
+.wrapper {
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.headerIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+}
+
+.header h1 {
+  margin-bottom: var(--space-xs);
+}
+
+.header p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Section --- */
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary-dark);
+}
+
+/* --- Template Grid --- */
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.templateCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+  font-family: inherit;
+  color: var(--color-primary);
+}
+
+.templateCard:hover {
+  border-color: var(--color-primary-muted);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.templateCard strong {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  color: var(--color-primary-dark);
+}
+
+.templateCard span {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.templateActive {
+  border-color: var(--color-primary);
+  background: var(--color-secondary-light);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* --- Form --- */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.field label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+}
+
+.field input {
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  background: var(--color-bg-card);
+}
+
+.field input:focus {
+  border-color: var(--color-primary-muted);
+  box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+}
+
+.generateBtn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  border: none;
+  padding: var(--space-md) var(--space-2xl);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+
+.generateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3);
+}
+
+/* --- Output --- */
+.outputHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.outputHeader .sectionTitle {
+  margin-bottom: 0;
+}
+
+.outputActions {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-secondary);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyBtn:hover {
+  background: var(--color-secondary-light);
+  border-color: var(--color-primary-muted);
+}
+
+.output {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding: var(--space-md); }
+  .templateGrid { grid-template-columns: 1fr; }
+  .formGrid { grid-template-columns: 1fr; }
+}

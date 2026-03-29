@@ -1,0 +1,132 @@
+/* ============================================
+   SheBloom — Prescription Manager
+   ============================================ */
+
+.page { padding: var(--space-2xl); max-width: 1200px; margin: 0 auto; }
+
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-xl); }
+.header h1 { display: flex; align-items: center; gap: var(--space-md); margin: 0 0 var(--space-xs); }
+.header p { margin: 0; color: var(--color-text-muted); font-size: var(--fs-small); }
+
+.primaryBtn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white; border: none; padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-pill); font-family: var(--font-heading);
+  font-weight: 600; font-size: var(--fs-small); cursor: pointer;
+  display: flex; align-items: center; gap: var(--space-sm);
+  transition: all var(--transition-base); box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+.primaryBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3); }
+
+.searchBox {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg); background: var(--color-bg-card);
+  border: 2px solid var(--color-secondary); border-radius: var(--radius-pill);
+  margin-bottom: var(--space-lg); max-width: 500px;
+}
+.searchBox:focus-within { border-color: var(--color-primary-muted); }
+.searchBox input { border: none; outline: none; flex: 1; font-size: var(--fs-body); font-family: var(--font-body); background: transparent; color: var(--color-text); }
+.searchBox input::placeholder { color: var(--color-text-muted); }
+
+.warningBanner {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg); margin-bottom: var(--space-xl);
+  background: rgba(233, 196, 106, 0.1); border: 1px solid rgba(233, 196, 106, 0.3);
+  border-radius: var(--radius-md); color: var(--color-warning-dark);
+  font-size: var(--fs-small); font-weight: 500;
+}
+
+/* --- Rx Grid --- */
+.rxGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--space-xl); }
+
+.rxCard {
+  background: var(--color-bg-card); border-radius: var(--radius-xl);
+  padding: var(--space-xl); box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(183, 228, 199, 0.2);
+  transition: all var(--transition-base); position: relative; overflow: hidden;
+}
+.rxCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--color-primary-muted), var(--color-primary)); }
+.rxCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.rxHeader { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+.rxIcon { color: var(--color-primary); flex-shrink: 0; }
+.rxHeader h3 { margin: 0; font-size: var(--fs-body); }
+.rxPatient { font-size: var(--fs-tiny); color: var(--color-text-muted); }
+
+.statusBadge {
+  margin-left: auto; display: flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: var(--radius-pill);
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+}
+.statusActive { background: rgba(64, 145, 108, 0.1); color: var(--color-success); }
+.statusMonitor { background: rgba(233, 196, 106, 0.15); color: var(--color-warning-dark); }
+
+.rxDetails { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+.rxDetail { font-size: var(--fs-small); color: var(--color-text-secondary); }
+.rxDetail strong { color: var(--color-text); font-weight: 600; margin-right: 4px; }
+
+.condTag {
+  background: rgba(82, 183, 136, 0.08); color: var(--color-primary);
+  padding: 2px 8px; border-radius: var(--radius-pill);
+  font-size: 0.65rem; font-weight: 600;
+}
+
+/* --- Modal --- */
+.modalOverlay {
+  position: fixed; inset: 0; background: rgba(27, 67, 50, 0.5);
+  backdrop-filter: blur(6px); display: flex; align-items: center;
+  justify-content: center; z-index: 1000;
+}
+
+.modal {
+  background: var(--color-bg-card); border-radius: var(--radius-xl);
+  width: 90%; max-width: 560px; box-shadow: var(--shadow-xl);
+  animation: scaleIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modalHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.06), rgba(183, 228, 199, 0.12));
+  border-bottom: 1px solid rgba(183, 228, 199, 0.3);
+}
+.modalHeader h3 { margin: 0; display: flex; align-items: center; gap: var(--space-sm); font-size: var(--fs-h4); }
+
+.closeBtn { background: none; border: none; color: var(--color-text-muted); cursor: pointer; padding: 4px; border-radius: var(--radius-sm); }
+.closeBtn:hover { color: var(--color-primary-dark); }
+
+.modalBody { padding: var(--space-xl); }
+
+.field { margin-bottom: var(--space-md); }
+.field label { display: block; font-size: var(--fs-small); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-xs); }
+.field input, .field select {
+  width: 100%; padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-secondary); border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: var(--fs-body); color: var(--color-text);
+  outline: none; transition: border-color var(--transition-fast); background: var(--color-bg-card);
+}
+.field input:focus, .field select:focus { border-color: var(--color-primary-muted); }
+
+.fieldRow { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+
+.modalFooter {
+  display: flex; justify-content: flex-end; gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  border-top: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.secondaryBtn {
+  background: var(--color-bg-card); color: var(--color-text-secondary);
+  border: 2px solid var(--color-secondary); padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-pill); font-family: var(--font-heading); font-weight: 500;
+  font-size: var(--fs-small); cursor: pointer;
+}
+.secondaryBtn:hover { background: var(--color-secondary-light); }
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-lg); }
+  .header { flex-direction: column; gap: var(--space-md); }
+  .rxGrid { grid-template-columns: 1fr; }
+  .fieldRow { grid-template-columns: 1fr; }
+}

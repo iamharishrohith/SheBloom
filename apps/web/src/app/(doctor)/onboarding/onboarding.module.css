@@ -1,0 +1,376 @@
+/* ============================================
+   SheBloom — Doctor Onboarding / Patient Intake
+   Premium Clinical Form
+   ============================================ */
+
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F0FAF4 0%, #FDF8F4 50%, #FFF5EE 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* --- Header --- */
+.header {
+  padding: var(--space-lg) var(--space-2xl);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(183, 228, 199, 0.3);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.brand h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-primary-dark);
+}
+
+.brand span {
+  font-weight: 400;
+  color: var(--color-primary-muted);
+}
+
+.logoIcon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+}
+
+/* --- Step Indicator --- */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+
+.stepDot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary-light);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  transition: all var(--transition-base);
+}
+
+.stepActive {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  box-shadow: 0 3px 10px rgba(45, 106, 79, 0.3);
+}
+
+.stepLine {
+  width: 40px;
+  height: 3px;
+  background: var(--color-secondary);
+  border-radius: var(--radius-pill);
+}
+
+/* --- Main Content --- */
+.mainContent {
+  flex: 1;
+  padding: var(--space-2xl) var(--space-lg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* --- Onboarding Card --- */
+.onboardingCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 660px;
+  overflow: hidden;
+  border: 1px solid rgba(183, 228, 199, 0.2);
+}
+
+.cardHeader {
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.06), rgba(183, 228, 199, 0.15));
+  padding: var(--space-xl) var(--space-2xl);
+  border-bottom: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.cardHeader h3 {
+  margin: 0 0 var(--space-xs) 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.cardHeader p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* --- Form --- */
+.form {
+  padding: var(--space-xl) var(--space-2xl);
+}
+
+.formSection {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.formSection h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--space-lg) 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+}
+
+.marginTop {
+  margin-top: var(--space-2xl) !important;
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(183, 228, 199, 0.25);
+}
+
+/* --- Input Groups --- */
+.inputGroup {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.inputGroup label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.inputGroup input,
+.inputGroup select {
+  padding: var(--space-md);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  background-color: var(--color-bg-card);
+  outline: none;
+}
+
+.inputGroup input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: var(--color-primary-muted);
+  box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+  background-color: white;
+}
+
+.helperText {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: var(--space-lg);
+  line-height: var(--lh-normal);
+}
+
+/* --- Badge Container --- */
+.badgeContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.04), rgba(183, 228, 199, 0.1));
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-lg);
+  border: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.badgeContainer span {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-normal);
+}
+
+/* --- Actions --- */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(183, 228, 199, 0.3);
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  border: none;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+  letter-spacing: 0.02em;
+}
+
+.primaryButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3);
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background: var(--color-bg-card);
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-secondary);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.secondaryButton:hover {
+  background: var(--color-secondary-light);
+  border-color: var(--color-primary-muted);
+  transform: translateY(-1px);
+}
+
+/* --- Success State --- */
+.successContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  background: linear-gradient(135deg, #F0FAF4 0%, #FDF8F4 50%, #FFF5EE 100%);
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.successIcon {
+  color: var(--color-primary);
+  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.successContainer h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  color: var(--color-primary-dark);
+  margin: 0;
+}
+
+.successContainer p {
+  color: var(--color-text-secondary);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+  max-width: 480px;
+  font-size: var(--fs-body);
+}
+
+.successContainer strong {
+  color: var(--color-primary-dark);
+}
+
+.successContainer .primaryButton {
+  margin-top: var(--space-lg);
+  justify-content: center;
+  padding: var(--space-md) var(--space-2xl);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .mainContent {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .form {
+    padding: var(--space-lg);
+  }
+
+  .cardHeader {
+    padding: var(--space-lg);
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

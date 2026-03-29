@@ -1,0 +1,13 @@
+{
+  "name": "shebloom",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "dev:web": "bun run --filter web dev",
+    "dev:api": "bun run --filter api dev",
+    "build": "bun run --filter web build",
+    "db:migrate": "bun run --filter api db:migrate",
+    "db:push": "bun run --filter api db:push"
+  }
+}

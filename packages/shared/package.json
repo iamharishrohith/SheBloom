@@ -1,0 +1,13 @@
+{
+  "name": "@shebloom/shared",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./data": "./data.js",
+    "./recovery": "./recovery-data.js",
+    "./glossary": "./tamil-glossary.js",
+    "./constants": "./constants.js"
+  }
+}

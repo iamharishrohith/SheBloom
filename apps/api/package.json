@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/index.js",
+    "start": "bun src/index.js",
+    "db:migrate": "bun src/db/migrate.js",
+    "db:push": "drizzle-kit push"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10"
+  },
+  "dependencies": {
+    "@elysiajs/cron": "^1.4.1",
+    "@neondatabase/serverless": "^1.0.2",
+    "@shebloom/shared": "workspace:*",
+    "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.45.2",
+    "postgres": "^3.4.8"
+  }
+}
